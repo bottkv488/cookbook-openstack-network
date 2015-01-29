@@ -71,5 +71,14 @@ enable_security_group = <%= node['openstack']['network']['ml2']['enable_security
 # requires that ipset is installed on L2 agent node.
 enable_ipset = <%= node['openstack']['network']['ml2']['enable_ipset'] %>
 
-# Custom settings
 firewall_driver = neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver
+
+[ovs]
+
+local_ip = <%= node['openstack']['network']['openvswitch']['local_ip'] %>
+bridge_mappings = <%= node['openstack']['network']['openvswitch']['bridge_mappings'] %>
+enable_tunneling = <%= node['openstack']['network']['openvswitch']['enable_tunneling'] %>
+
+[agent]
+
+tunnel_types = <%= node['openstack']['network']['openvswitch']['tunnel_type'] %>
